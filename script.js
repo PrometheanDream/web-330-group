@@ -119,8 +119,7 @@
         answers.push(
           `<label>
              <input type="radio" name="question${questionNumber}" value="${letter}">
-              ${letter} :
-              ${currentQuestion.answers[letter]}
+              ${letter} : ${currentQuestion.answers[letter]}
            </label>`
         );
       }
@@ -130,7 +129,6 @@
         `<div class="slide">
            <div class="question"> ${currentQuestion.question} </div>
            <div class="answers"> ${answers.join("")} </div>
-           <div class="welcome"></div>
          </div>`
       );
     });
@@ -138,8 +136,9 @@
     //pushes what was just created back into the output array
     quizContainer.innerHTML = output.join("");
   }
-
+    
   function showResults() {
+
     // selects all the answers from the containerQuiz, which was pushed by the buildQuiz
     const answerContainers = quizContainer.querySelectorAll(".answers");
 
@@ -156,22 +155,21 @@
       const userAnswer = (answerContainer.querySelector(selector) || {}).value;
 
       // if answer is correct
-      if (userAnswer === currentQuestion.correctAnswer) {
+      if (userAnswer === currentQuestion.trueAnswer) {
         // add to the number of correct answers
-        numCorrect++;
+        numCorrect++;       
+      } 
 
-        // color the answers green
-        answerContainers[questionNumber].style.color = "lightgreen";
-      } else {
-        // if answer is wrong or blank
-        // color the answers red
-        answerContainers[questionNumber].style.color = "red";
-      }
+      // directs the submit button to the score page on click
+    window.location.href = "scorePage.html";
+    
+
     });
 
     // show number of correct answers out of total
-    resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}`;
+    finalScore.innerHTML = `${numCorrect} out of ${myQuestions.length}`;
   }
+  
 
   function showSlide(n) {
     slides[currentSlide].classList.remove("active-slide");
@@ -193,16 +191,25 @@
     }
   }
 
+  // moves to the next slide
   function showNextSlide() {
     showSlide(currentSlide + 1);
   }
 
+  //moves to the previous slide
   function showPreviousSlide() {
     showSlide(currentSlide - 1);
   }
 
+  
+
+  // will eventually hold an if/else or for loop to give out rank based on score
+  function customRank(){
+
+  }
+
+  const finalScore = document.getElementById("finalScore");
   const quizContainer = document.getElementById("quiz");
-  const resultsContainer = document.getElementById("results");
   const submitButton = document.getElementById("submit");
 
   // display quiz right away
@@ -217,6 +224,8 @@
 
   // on submit, show results
   submitButton.addEventListener("click", showResults);
+  // previous button -1 to current slide until 0
   previousButton.addEventListener("click", showPreviousSlide);
+  // next button +1 to current slide until slides.length
   nextButton.addEventListener("click", showNextSlide);
 })();
