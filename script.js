@@ -1,7 +1,7 @@
 (function() {
   // array that holds the questions and answers and correct answer.
   const myQuestions = [
-    {
+       {
       question: "Question One", // Question One
       answers: {
           a:"Answer One",
@@ -130,7 +130,7 @@
         `<div class="slide">
            <div class="question"> ${currentQuestion.question} </div>
            <div class="answers"> ${answers.join("")} </div>
-           <div class="finalPage"></div>
+           <div class="welcome"></div>
          </div>`
       );
     });
