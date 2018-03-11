@@ -11,11 +11,16 @@ body{
 h1{
   font-weight: 300;
   margin: 0px;
-  padding: 10px;
-  font-size: 20px;
-  background-color: #444;
+  padding: 2.5%;
+  font-size: 40px;
+  background-color: rgb(57, 157, 214);
   color: #fff;
 }
+
+#rank {
+  font-size: 50px;
+}
+
 .question{
   font-size: 30px;
   margin-bottom: 10px;
@@ -32,7 +37,7 @@ h1{
 button{
   font-family: 'Work Sans', sans-serif;
 	font-size: 22px;
-	background-color: #279;
+	background-color: rgb(35, 8, 153);
 	color: #fff;
 	border: 0px;
 	border-radius: 3px;
@@ -41,7 +46,7 @@ button{
 	margin-bottom: 20px;
 }
 button:hover{
-	background-color: #38a;
+	background-color: rgb(15, 110, 58);
 }
 
 .slide{
@@ -61,11 +66,17 @@ button:hover{
 .quiz-container{
   position: relative;
   height: 200px;
-  margin-top: 40px;
+  margin-top: 10%;
 }
 
 .welcomePage{
   position: relative;
   height: 200px;
-  margin-top: 40px;
+  margin-top: 10%;
+}
+
+.scorePage{
+  position: relative;
+  height: 200px;
+  margin-top: 10%;
 }
