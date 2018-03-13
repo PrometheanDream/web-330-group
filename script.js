@@ -136,6 +136,10 @@
     //pushes what was just created back into the output array
     quizContainer.innerHTML = output.join("");
   }
+
+    function result(r) {
+        return r;
+    }
     
   function showResults() {
 
@@ -158,16 +162,21 @@
       if (userAnswer === currentQuestion.trueAnswer) {
         // add to the number of correct answers
         numCorrect++;       
-      } 
-
-      // directs the submit button to the score page on click
-    window.location.href = "scorePage.html";
-    
+      }  
 
     });
+    
+    // Add the score to a local variable
+    let score = `${numCorrect} out of ${myQuestions.length}`;
 
-    // show number of correct answers out of total
-    finalScore.innerHTML = `${numCorrect} out of ${myQuestions.length}`;
+    // Add the score variable to the HTML session object
+    sessionStorage.setItem("finalScore", score);
+    //sessionStorage.setItem("finalRank", numCorrect);
+
+    //finalScore.innerHTML = `${numCorrect} out of ${myQuestions.length}`;
+    // directs the submit button to the score page on click
+    window.location.href = "scorePage.html";
+
   }
   
 
@@ -201,12 +210,21 @@
     showSlide(currentSlide - 1);
   }
 
-  
-
-  // will eventually hold an if/else or for loop to give out rank based on score
+  /* will eventually hold an if/else or for loop to give out rank based on score
+   const finalRank;
   function customRank(){
-
-  }
+    if (numCorrect < 6){
+        finalRank = "Beginner";
+        return finalRank;
+    } else if (numCorrect >= 6 && numberCorrect <= 8){
+        finalRank = "Novice";
+        return finalRank;
+    } else if (numCorrect > 8){
+        finalRank = "Expert";
+        return finalRank;
+    }
+    sessionStorage.setItem("finalRank", finalRank);
+  } */
 
   const finalScore = document.getElementById("finalScore");
   const quizContainer = document.getElementById("quiz");
@@ -228,4 +246,6 @@
   previousButton.addEventListener("click", showPreviousSlide);
   // next button +1 to current slide until slides.length
   nextButton.addEventListener("click", showNextSlide);
+  // clears the session storage data on click
+  restartButton.addEventListener("click", sessionStorage.clear());
 })();

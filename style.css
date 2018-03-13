@@ -80,3 +80,15 @@ button:hover{
   height: 200px;
   margin-top: 10%;
 }
+
+#finalScore{
+  height: 20px;
+  margin-top: 1%;
+}
+
+#scoreBox{
+  height: 20px;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  padding-bottom: 1%;
+}
