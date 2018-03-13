@@ -213,13 +213,13 @@
   /* will eventually hold an if/else or for loop to give out rank based on score
    const finalRank;
   function customRank(){
-    if (numCorrect < 6){
+    if (`${numCorrect}` < 6){
         finalRank = "Beginner";
         return finalRank;
-    } else if (numCorrect >= 6 && numberCorrect <= 8){
+    } else if (`${numCorrect}` >= 6 && numberCorrect <= 8){
         finalRank = "Novice";
         return finalRank;
-    } else if (numCorrect > 8){
+    } else if (`${numCorrect}` > 8){
         finalRank = "Expert";
         return finalRank;
     }
